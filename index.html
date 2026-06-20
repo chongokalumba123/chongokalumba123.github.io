@@ -31,46 +31,227 @@
   </style>
 </head>
 
+
 <body>
 
-<header>
-  <h1>Kevin Kalumba</h1>
-  <p>Blockchain & Full Stack Developer</p>
+<div class="bg-grid"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">kevin<span class="dim">@</span>kalumba<span class="dim">:~$</span></div>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-status"><span class="pulse-dot"></span>OPEN TO WORK</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="terminal" id="terminal" aria-hidden="true"></div>
+
+        <h1>Chongo Kevin<br><span class="accent">Kalumba.</span></h1>
+        <div class="role">IT Engineer <span class="sep">/</span> Networking &amp; Security <span class="sep">/</span> Full-Stack</div>
+
+        <p class="tagline">Final-year IT student at <strong>ZCAS University</strong>, based in Lusaka, Zambia. I build and secure systems end to end — from <strong>React frontends</strong> to <strong>network architecture</strong> to <strong>cryptographic fundamentals</strong> — and I'm looking for a remote role or internship to put that range to work.</p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="mailto:kkalumba15@gmail.com">Email me →</a>
+          <a class="btn btn-ghost" href="#projects">View projects</a>
+          <a class="btn btn-ghost" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><span class="dot">●</span>Lusaka, Zambia</span>
+          <span><span class="dot">●</span>+260 976 852 080</span>
+          <span><span class="dot">●</span>Available for remote &amp; internship roles</span>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="profile.jpg" alt="Chongo Kevin Kalumba" onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback');">
+        <span class="photo-status"><span class="dot"></span>Available</span>
+      </div>
+    </div>
+  </div>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    I am a fourth-year Information Technology student passionate about software
-    development, blockchain, and building real-world applications.
-  </p>
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">system.skills</div>
+    <h2>What I work with</h2>
+    <p class="section-intro">A generalist's toolkit — built across coursework and self-driven projects, spanning four connected domains.</p>
+
+    <div class="network-panel reveal">
+      <div class="net-grid">
+        <div class="net-node">
+          <div class="net-node-head"><span class="net-node-title">Programming</span><span class="net-led"></span></div>
+          <div class="net-tags">
+            <span class="net-tag">Java</span><span class="net-tag">Python</span><span class="net-tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="net-node">
+          <div class="net-node-head"><span class="net-node-title">Web &amp; Mobile</span><span class="net-led"></span></div>
+          <div class="net-tags">
+            <span class="net-tag">React</span><span class="net-tag">HTML</span><span class="net-tag">CSS</span><span class="net-tag">Flutter</span>
+          </div>
+        </div>
+        <div class="net-node">
+          <div class="net-node-head"><span class="net-node-title">Networking &amp; Security</span><span class="net-led"></span></div>
+          <div class="net-tags">
+            <span class="net-tag">Computer Networks</span><span class="net-tag">Cryptography</span>
+          </div>
+        </div>
+        <div class="net-node">
+          <div class="net-node-head"><span class="net-node-title">Databases</span><span class="net-led"></span></div>
+          <div class="net-tags">
+            <span class="net-tag">MySQL</span><span class="net-tag">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="net-node">
+          <div class="net-node-head"><span class="net-node-title">Tools &amp; OS</span><span class="net-led"></span></div>
+          <div class="net-tags">
+            <span class="net-tag">Git</span><span class="net-tag">Kali Linux</span><span class="net-tag">Ubuntu</span><span class="net-tag">Windows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Projects</h2>
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">system.projects</div>
+    <h2>Things I've shipped</h2>
+    <p class="section-intro">Two live builds that put coursework into practice — distributed systems on one side, real-world commerce on the other.</p>
 
-  <div class="project">
-    <h3>Decentralized Voting DApp</h3>
-    <p>Blockchain voting system using smart contracts.</p>
+    <div class="projects">
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">Blockchain Web Application</div>
+          <div class="proj-status"><span class="dot"></span>DEPLOYED</div>
+        </div>
+        <p class="proj-desc">A decentralized application exploring distributed-systems design, with secure transaction handling and data-integrity principles built in from the ground up.</p>
+        <div class="proj-stack"><span>React</span><span>Blockchain concepts</span><span>Distributed systems</span></div>
+        <a class="proj-link" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">View on GitHub ↗</a>
+      </div>
+
+      <div class="proj-card reveal">
+        <div class="proj-top">
+          <div class="proj-name">QuickShop — E-Commerce Website</div>
+          <div class="proj-status"><span class="dot"></span>LIVE</div>
+        </div>
+        <p class="proj-desc">An online store built and deployed end-to-end — product listings, pricing, and checkout — with a focus on clean navigation and usability for real customers.</p>
+        <div class="proj-stack"><span>Google Sites</span><span>Ecwid</span><span>UX</span></div>
+        <a class="proj-link" href="https://sites.google.com/view/quickshop2-/home" target="_blank" rel="noopener">Visit live site ↗</a>
+      </div>
+    </div>
   </div>
-
-  <div class="project">
-    <h3>Task Manager App</h3>
-    <p>Full stack application for managing tasks.</p>
-  </div>
-
-  <div class="project">
-    <h3>API Data App</h3>
-    <p>App that fetches real-time data from APIs.</p>
-  </div>
-
 </section>
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: your@email.com</p>
-  <p>LinkedIn: your link</p>
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">system.about</div>
+    <h2>Background</h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a final-year <strong>BSc Information Technology</strong> student at ZCAS University in Lusaka, expecting to graduate in <strong>2027</strong>. My coursework leans hard into security and systems — cryptography, network defense, advanced databases — but I balance that with hands-on product work: shipping a blockchain app and running a live e-commerce store.</p>
+        <p>That mix is what I bring to a team: I can reason about how a system should be <strong>secured and architected</strong>, and I can also <strong>build and ship</strong> the thing itself.</p>
+        <div class="soft-skills">
+          <span>Problem-solving</span><span>Teamwork</span><span>Communication</span><span>Time management</span>
+        </div>
+      </div>
+      <div class="reveal">
+        <ul class="course-list">
+          <li>Cryptography and Applications</li>
+          <li>Computer and Network Security</li>
+          <li>Advanced Object-Oriented Programming</li>
+          <li>Mobile Application Development</li>
+          <li>Advanced Databases</li>
+          <li>Web Application Development</li>
+          <li>IT Project Management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  
 </section>
+
+<section id="contact" class="cta-section" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">system.contact</div>
+    <h2>Let's connect.</h2>
+    <p>Open to remote internships and entry-level IT roles — software development, security, or networking. I reply fast.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:kkalumba15@gmail.com">kkalumba15@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/kevin-kalumba-91813426a" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <span>© 2026 Chongo Kevin Kalumba · Lusaka, Zambia</span>
+    <span><a href="mailto:kkalumba15@gmail.com">kkalumba15@gmail.com</a> · +260 976 852 080</span>
+  </div>
+</footer>
+
+<script>
+  // boot-sequence terminal
+  const lines = [
+    {p:'$ ', t:'whoami', c:'prompt'},
+    {p:'', t:'chongo_kevin_kalumba — final-year IT student, ZCAS University', c:''},
+    {p:'$ ', t:'status --check', c:'prompt'},
+    {p:'', t:'[OK] open to remote work', c:'ok'}
+  ];
+  const term = document.getElementById('terminal');
+  let li = 0;
+
+  function typeLine(){
+    if(li >= lines.length){
+      const cur = document.createElement('span');
+      cur.className = 'cursor';
+      term.appendChild(cur);
+      return;
+    }
+    const {p,t,c} = lines[li];
+    const div = document.createElement('span');
+    div.className = 'line';
+    const promptSpan = p ? `<span class="prompt">${p}</span>` : '';
+    div.innerHTML = promptSpan + `<span class="${c}"></span>`;
+    term.appendChild(div);
+    const target = div.querySelector('span:last-child');
+    let i = 0;
+    const speed = c === 'prompt' || p ? 28 : 10;
+    function type(){
+      if(i <= t.length){
+        target.textContent = t.slice(0,i);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        li++;
+        setTimeout(typeLine, 220);
+      }
+    }
+    type();
+  }
+  typeLine();
+
+  // scroll reveal
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 
 </body>
-</html>
+</html>   
