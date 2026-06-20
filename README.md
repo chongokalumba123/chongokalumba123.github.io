@@ -26,9 +26,12 @@ Updating later
 Inside this folder after making changes:
 
 ```
-git add .
+git add <that-file>
 git commit -m "Update site"
 git push
 ```
 
 If you prefer manual steps, see the commands inside `publish_site.bat`.
+
+# chongokalumba123.github.io
+Portfolio
