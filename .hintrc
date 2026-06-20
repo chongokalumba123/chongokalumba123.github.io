@@ -7,9 +7,11 @@
       "default",
       {
         "ignore": [
-          "backdrop-filter"
+          "backdrop-filter",
+          "mask-image"
         ]
       }
-    ]
+    ],
+    "no-inline-styles": "off"
   }
 }

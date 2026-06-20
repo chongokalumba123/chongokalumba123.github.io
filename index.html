@@ -1,625 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chongo Kevin Kalumba — IT Engineer</title>
-<meta name="description" content="Chongo Kevin Kalumba — IT student specializing in software development, networking, cybersecurity, and databases. Open to remote internships and roles.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0B0F1A;
-    --ink-2:#10162A;
-    --panel:#141B30;
-    --line: rgba(244,246,248,0.10);
-    --line-strong: rgba(244,246,248,0.18);
-    --text:#F4F6F8;
-    --text-dim:#8B95A8;
-    --orange:#FF5630;
-    --green:#2EE6A6;
-    --blue:#3D7FFF;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'JetBrains Mono', monospace;
-  }
- 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--ink);
-    color:var(--text);
-    font-family:var(--font-body);
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  a{color:inherit;text-decoration:none;}
-  ::selection{background:var(--orange);color:var(--ink);}
- 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
-  }
- 
-  :focus-visible{
-    outline:2px solid var(--green);
-    outline-offset:3px;
-    border-radius:2px;
-  }
- 
-  /* ---------- background grid ---------- */
-  .bg-grid{
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size:48px 48px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 70%);
-    opacity:0.5;
-  }
- 
-  .wrap{
-    max-width:1080px;
-    margin:0 auto;
-    padding:0 24px;
-    position:relative;
-    z-index:1;
-  }
- 
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(11,15,26,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:64px;
-  }
-  .logo{
-    font-family:var(--font-mono);
-    font-size:14px;
-    color:var(--green);
-    letter-spacing:0.02em;
-  }
-  .logo .dim{color:var(--text-dim);}
-  .nav-links{display:flex; gap:8px; font-size:14px; color:var(--text-dim);}
-  .nav-links a{
-    transition:color .15s ease, background .15s ease;
-    padding:8px 12px;
-    border-radius:6px;
-    min-height:36px;
-    display:flex;
-    align-items:center;
-  }
-  .nav-links a:hover, .nav-links a:focus-visible{color:var(--text); background:rgba(244,246,248,0.06);}
-  .nav-status{
-    display:flex; align-items:center; gap:8px;
-    font-family:var(--font-mono); font-size:12px; color:var(--green);
-  }
-  .pulse-dot{
-    width:7px; height:7px; border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 0 0 rgba(46,230,166,0.6);
-    animation:pulse 2.2s infinite;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(46,230,166,0.5);}
-    70%{box-shadow:0 0 0 8px rgba(46,230,166,0);}
-    100%{box-shadow:0 0 0 0 rgba(46,230,166,0);}
-  }
-  @media (max-width:720px){ .nav-links{display:none;} }
- 
-  /* ---------- hero ---------- */
-  .hero{
-    padding:88px 0 64px;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1fr 280px;
-    gap:56px;
-    align-items:start;
-  }
-  .hero-main{min-width:0;}
- 
-  .terminal{
-    font-family:var(--font-mono);
-    font-size:13px;
-    color:var(--text-dim);
-    margin-bottom:32px;
-    min-height:84px;
-  }
-  .terminal .line{display:block; margin-bottom:4px;}
-  .terminal .prompt{color:var(--blue);}
-  .terminal .ok{color:var(--green);}
-  .terminal .cursor{
-    display:inline-block; width:7px; height:14px;
-    background:var(--green); margin-left:4px;
-    animation:blink 1s step-end infinite; vertical-align:middle;
-  }
-  @keyframes blink{50%{opacity:0;}}
- 
-  .hero h1{
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:clamp(40px, 6.5vw, 72px);
-    line-height:1.03;
-    letter-spacing:-0.01em;
-    margin-bottom:16px;
-  }
-  .hero h1 .accent{color:var(--orange);}
-  .hero .role{
-    font-family:var(--font-mono);
-    font-size:clamp(14px,2vw,16px);
-    color:var(--text-dim);
-    margin-bottom:24px;
-  }
-  .hero .role .sep{color:var(--line-strong); margin:0 10px;}
-  .hero p.tagline{
-    max-width:560px;
-    font-size:17px;
-    color:var(--text-dim);
-    margin-bottom:32px;
-  }
-  .hero p.tagline strong{color:var(--text); font-weight:600;}
- 
-  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:40px;}
-  .btn{
-    font-family:var(--font-mono);
-    font-size:13px;
-    padding:14px 24px;
-    min-height:44px;
-    border-radius:6px;
-    display:inline-flex; align-items:center; gap:8px;
-    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    border:1px solid transparent;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn-primary{background:var(--orange); color:#1a0a04; font-weight:600;}
-  .btn-primary:hover{box-shadow:0 8px 24px -8px rgba(255,86,48,0.55);}
-  .btn-ghost{border-color:var(--line-strong); color:var(--text);}
-  .btn-ghost:hover{border-color:var(--green); box-shadow:0 8px 24px -8px rgba(46,230,166,0.3);}
- 
-  .hero-meta{
-    display:flex; gap:24px; flex-wrap:wrap;
-    font-family:var(--font-mono); font-size:12px; color:var(--text-dim);
-    border-top:1px solid var(--line); padding-top:24px;
-  }
-  .hero-meta span{display:flex; align-items:center; gap:6px;}
-  .hero-meta .dot{color:var(--blue);}
- 
-  /* ---------- profile photo ---------- */
-  .hero-photo{
-    position:relative;
-    width:100%;
-    max-width:280px;
-    aspect-ratio:1/1;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid var(--line-strong);
-    background:var(--panel);
-    justify-self:end;
-  }
-  .hero-photo img{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-    filter:saturate(1.05) contrast(1.03);
-  }
-  .hero-photo::after{
-    content:'';
-    position:absolute; inset:0;
-    border-radius:20px;
-    box-shadow:inset 0 0 0 1px rgba(46,230,166,0.0);
-    background:linear-gradient(180deg, transparent 60%, rgba(11,15,26,0.55) 100%);
-    pointer-events:none;
-  }
-  .photo-status{
-    position:absolute; bottom:14px; left:14px;
-    display:flex; align-items:center; gap:7px;
-    font-family:var(--font-mono); font-size:11px;
-    color:var(--green);
-    background:rgba(11,15,26,0.65);
-    backdrop-filter:blur(6px);
-    padding:6px 11px;
-    border-radius:20px;
-    border:1px solid rgba(46,230,166,0.3);
-    z-index:2;
-  }
-  .photo-status .dot{width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 2.2s infinite;}
- 
-  .hero-photo.photo-fallback{
-    display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(160deg, var(--panel), var(--ink-2));
-  }
-  .hero-photo.photo-fallback::before{
-    content:'CK';
-    font-family:var(--font-display);
-    font-weight:700;
-    font-size:64px;
-    color:var(--line-strong);
-    letter-spacing:0.02em;
-  }
- 
-  @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr; gap:32px;}
-    .hero-photo{max-width:160px; justify-self:start; order:-1;}
-  }
- 
-  /* ---------- section shell ---------- */
-  section{padding:80px 0; border-bottom:1px solid var(--line);}
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:12px;
-    color:var(--blue);
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    margin-bottom:12px;
-    display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:'//'; color:var(--line-strong);}
-  h2{
-    font-family:var(--font-display);
-    font-weight:600;
-    font-size:clamp(28px,4vw,40px);
-    margin-bottom:16px;
-    letter-spacing:-0.01em;
-  }
-  .section-intro{color:var(--text-dim); max-width:600px; margin-bottom:48px; font-size:16px;}
- 
-  /* ---------- network skills graph ---------- */
-  .network-panel{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:32px;
-    position:relative;
-    overflow:hidden;
-  }
-  .network-panel::before{
-    content:'';
-    position:absolute; top:0; left:0; right:0; height:1px;
-    background:linear-gradient(90deg, transparent, var(--green), transparent);
-    opacity:0.6;
-  }
-  .net-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:8px;
-    overflow:hidden;
-  }
-  .net-node{
-    background:var(--ink-2);
-    padding:22px 20px;
-    transition:background .2s ease;
-  }
-  .net-node:hover{background:#192040;}
-  .net-node-head{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-bottom:14px;
-  }
-  .net-node-title{
-    font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em;
-    text-transform:uppercase; color:var(--text-dim);
-  }
-  .net-led{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green);}
-  .net-tags{display:flex; flex-wrap:wrap; gap:8px;}
-  .net-tag{
-    font-family:var(--font-mono); font-size:12.5px;
-    padding:5px 10px; border-radius:5px;
-    background:rgba(244,246,248,0.04);
-    border:1px solid var(--line);
-    color:var(--text);
-  }
- 
-  /* ---------- projects ---------- */
-  .projects{display:flex; flex-direction:column; gap:20px;}
-  .proj-card{
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:32px;
-    transition:border-color .2s ease, transform .2s ease;
-  }
-  .proj-card:hover{border-color:var(--line-strong); transform:translateY(-2px);}
-  .proj-top{
-    display:flex; align-items:flex-start; justify-content:space-between;
-    gap:16px; margin-bottom:16px; flex-wrap:wrap;
-  }
-  .proj-name{
-    font-family:var(--font-display); font-weight:600; font-size:22px;
-  }
-  .proj-status{
-    display:flex; align-items:center; gap:7px;
-    font-family:var(--font-mono); font-size:11px;
-    padding:5px 10px; border-radius:20px;
-    border:1px solid var(--line-strong);
-    color:var(--green); white-space:nowrap;
-  }
-  .proj-status .dot{width:6px; height:6px; border-radius:50%; background:var(--green); animation:pulse 2.2s infinite;}
-  .proj-desc{color:var(--text-dim); margin-bottom:18px; max-width:680px;}
-  .proj-stack{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;}
-  .proj-stack span{
-    font-family:var(--font-mono); font-size:12px;
-    padding:4px 10px; border-radius:5px;
-    background:rgba(61,127,255,0.1); color:var(--blue);
-    border:1px solid rgba(61,127,255,0.25);
-  }
-  .proj-link{
-    font-family:var(--font-mono); font-size:13px; color:var(--orange);
-    display:inline-flex; align-items:center; gap:6px;
-    border-bottom:1px solid transparent;
-  }
-  .proj-link:hover{border-bottom-color:var(--orange);}
- 
-  /* ---------- about / coursework ---------- */
-  .about-grid{
-    display:grid; grid-template-columns:1.1fr 1fr; gap:48px;
-  }
-  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
-  .about-text p{color:var(--text-dim); margin-bottom:16px; max-width:520px;}
-  .about-text strong{color:var(--text);}
-  .course-list{list-style:none;}
-  .course-list li{
-    display:flex; align-items:baseline; gap:12px;
-    padding:13px 0; border-bottom:1px solid var(--line);
-    font-size:14.5px; color:var(--text);
-  }
-  .course-list li::before{
-    content:'▸'; color:var(--orange); font-size:12px;
-  }
-  .soft-skills{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px;}
-  .soft-skills span{
-    font-family:var(--font-mono); font-size:12.5px;
-    padding:6px 12px; border-radius:20px;
-    border:1px solid var(--line-strong); color:var(--text-dim);
-  }
- 
-  /* ---------- contact / cta ---------- */
-  .cta-section{
-    background:linear-gradient(135deg, #1a0a04 0%, var(--ink) 60%);
-    border-bottom:none;
-    text-align:center;
-    padding:96px 0;
-  }
-  .cta-section h2{font-size:clamp(30px,5vw,48px); margin-bottom:14px;}
-  .cta-section p{color:var(--text-dim); max-width:480px; margin:0 auto 36px; font-size:16px;}
-  .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
- 
-  footer{
-    padding:32px 0;
-    display:flex; align-items:center; justify-content:space-between;
-    font-family:var(--font-mono); font-size:12px; color:var(--text-dim);
-    flex-wrap:wrap; gap:12px;
-  }
-  footer a:hover{color:var(--green);}
- 
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1; transform:translateY(0);}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kevin Kalumba | Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #0f172a;
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 40px;
+    }
+    section {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #38bdf8;
+      padding-bottom: 10px;
+    }
+    .project {
+      margin-bottom: 20px;
+    }
+    a { color: #38bdf8 }
+  </style>
 </head>
+
 <body>
- 
-<div class="bg-grid"></div>
- 
-<nav>
-  <div class="wrap">
-    <div class="logo">kevin<span class="dim">@</span>kalumba<span class="dim">:~$</span></div>
-    <div class="nav-links">
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-status"><span class="pulse-dot"></span>OPEN TO WORK</div>
-  </div>
-</nav>
- 
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-main">
-        <div class="terminal" id="terminal" aria-hidden="true"></div>
- 
-        <h1>Chongo Kevin<br><span class="accent">Kalumba.</span></h1>
-        <div class="role">IT Engineer <span class="sep">/</span> Networking &amp; Security <span class="sep">/</span> Full-Stack</div>
- 
-        <p class="tagline">Final-year IT student at <strong>ZCAS University</strong>, based in Lusaka, Zambia. I build and secure systems end to end — from <strong>React frontends</strong> to <strong>network architecture</strong> to <strong>cryptographic fundamentals</strong> — and I'm looking for a remote role or internship to put that range to work.</p>
- 
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="mailto:kkalumba15@gmail.com">Email me →</a>
-          <a class="btn btn-ghost" href="#projects">View projects</a>
-          <a class="btn btn-ghost" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
- 
-        <div class="hero-meta">
-          <span><span class="dot">●</span>Lusaka, Zambia</span>
-          <span><span class="dot">●</span>+260 976 852 080</span>
-          <span><span class="dot">●</span>Available for remote &amp; internship roles</span>
-        </div>
-      </div>
- 
-      <div class="hero-photo">
-        <img src="profile.jpg" alt="Chongo Kevin Kalumba" onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback');">
-        <span class="photo-status"><span class="dot"></span>Available</span>
-      </div>
-    </div>
-  </div>
+
+<header>
+  <h1>Kevin Kalumba</h1>
+  <p>Blockchain & Full Stack Developer</p>
 </header>
- 
-<section id="skills">
-  <div class="wrap">
-    <div class="eyebrow">system.skills</div>
-    <h2>What I work with</h2>
-    <p class="section-intro">A generalist's toolkit — built across coursework and self-driven projects, spanning four connected domains.</p>
- 
-    <div class="network-panel reveal">
-      <div class="net-grid">
-        <div class="net-node">
-          <div class="net-node-head"><span class="net-node-title">Programming</span><span class="net-led"></span></div>
-          <div class="net-tags">
-            <span class="net-tag">Java</span><span class="net-tag">Python</span><span class="net-tag">JavaScript</span>
-          </div>
-        </div>
-        <div class="net-node">
-          <div class="net-node-head"><span class="net-node-title">Web &amp; Mobile</span><span class="net-led"></span></div>
-          <div class="net-tags">
-            <span class="net-tag">React</span><span class="net-tag">HTML</span><span class="net-tag">CSS</span><span class="net-tag">Flutter</span>
-          </div>
-        </div>
-        <div class="net-node">
-          <div class="net-node-head"><span class="net-node-title">Networking &amp; Security</span><span class="net-led"></span></div>
-          <div class="net-tags">
-            <span class="net-tag">Computer Networks</span><span class="net-tag">Cryptography</span>
-          </div>
-        </div>
-        <div class="net-node">
-          <div class="net-node-head"><span class="net-node-title">Databases</span><span class="net-led"></span></div>
-          <div class="net-tags">
-            <span class="net-tag">MySQL</span><span class="net-tag">PostgreSQL</span>
-          </div>
-        </div>
-        <div class="net-node">
-          <div class="net-node-head"><span class="net-node-title">Tools &amp; OS</span><span class="net-led"></span></div>
-          <div class="net-tags">
-            <span class="net-tag">Git</span><span class="net-tag">Kali Linux</span><span class="net-tag">Ubuntu</span><span class="net-tag">Windows</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<section>
+  <h2>About Me</h2>
+  <p>
+    I am a fourth-year Information Technology student passionate about software
+    development, blockchain, and building real-world applications.
+  </p>
 </section>
- 
-<section id="projects">
-  <div class="wrap">
-    <div class="eyebrow">system.projects</div>
-    <h2>Things I've shipped</h2>
-    <p class="section-intro">Two live builds that put coursework into practice — distributed systems on one side, real-world commerce on the other.</p>
- 
-    <div class="projects">
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <div class="proj-name">Blockchain Web Application</div>
-          <div class="proj-status"><span class="dot"></span>DEPLOYED</div>
-        </div>
-        <p class="proj-desc">A decentralized application exploring distributed-systems design, with secure transaction handling and data-integrity principles built in from the ground up.</p>
-        <div class="proj-stack"><span>React</span><span>Blockchain concepts</span><span>Distributed systems</span></div>
-        <a class="proj-link" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">View on GitHub ↗</a>
-      </div>
- 
-      <div class="proj-card reveal">
-        <div class="proj-top">
-          <div class="proj-name">QuickShop — E-Commerce Website</div>
-          <div class="proj-status"><span class="dot"></span>LIVE</div>
-        </div>
-        <p class="proj-desc">An online store built and deployed end-to-end — product listings, pricing, and checkout — with a focus on clean navigation and usability for real customers.</p>
-        <div class="proj-stack"><span>Google Sites</span><span>Ecwid</span><span>UX</span></div>
-        <a class="proj-link" href="https://sites.google.com/view/quickshop2-/home" target="_blank" rel="noopener">Visit live site ↗</a>
-      </div>
-    </div>
+
+<section>
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Decentralized Voting DApp</h3>
+    <p>Blockchain voting system using smart contracts.</p>
   </div>
+
+  <div class="project">
+    <h3>Task Manager App</h3>
+    <p>Full stack application for managing tasks.</p>
+  </div>
+
+  <div class="project">
+    <h3>API Data App</h3>
+    <p>App that fetches real-time data from APIs.</p>
+  </div>
+
 </section>
- 
-<section id="about">
-  <div class="wrap">
-    <div class="eyebrow">system.about</div>
-    <h2>Background</h2>
- 
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>I'm a final-year <strong>BSc Information Technology</strong> student at ZCAS University in Lusaka, expecting to graduate in <strong>2027</strong>. My coursework leans hard into security and systems — cryptography, network defense, advanced databases — but I balance that with hands-on product work: shipping a blockchain app and running a live e-commerce store.</p>
-        <p>That mix is what I bring to a team: I can reason about how a system should be <strong>secured and architected</strong>, and I can also <strong>build and ship</strong> the thing itself.</p>
-        <div class="soft-skills">
-          <span>Problem-solving</span><span>Teamwork</span><span>Communication</span><span>Time management</span>
-        </div>
-      </div>
-      <div class="reveal">
-        <ul class="course-list">
-          <li>Cryptography and Applications</li>
-          <li>Computer and Network Security</li>
-          <li>Advanced Object-Oriented Programming</li>
-          <li>Mobile Application Development</li>
-          <li>Advanced Databases</li>
-          <li>Web Application Development</li>
-          <li>IT Project Management</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+
+<section>
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>LinkedIn: your link</p>
 </section>
- 
-<section id="contact" class="cta-section" style="border-bottom:none;">
-  <div class="wrap">
-    <div class="eyebrow" style="justify-content:center;">system.contact</div>
-    <h2>Let's connect.</h2>
-    <p>Open to remote internships and entry-level IT roles — software development, security, or networking. I reply fast.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:kkalumba15@gmail.com">kkalumba15@gmail.com</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/kevin-kalumba-91813426a" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn btn-ghost" href="https://github.com/chongokalumba123" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-  </div>
-</section>
- 
-<footer>
-  <div class="wrap" style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
-    <span>© 2026 Chongo Kevin Kalumba · Lusaka, Zambia</span>
-    <span><a href="mailto:kkalumba15@gmail.com">kkalumba15@gmail.com</a> · +260 976 852 080</span>
-  </div>
-</footer>
- 
-<script>
-  // boot-sequence terminal
-  const lines = [
-    {p:'$ ', t:'whoami', c:'prompt'},
-    {p:'', t:'chongo_kevin_kalumba — final-year IT student, ZCAS University', c:''},
-    {p:'$ ', t:'status --check', c:'prompt'},
-    {p:'', t:'[OK] open to remote work', c:'ok'}
-  ];
-  const term = document.getElementById('terminal');
-  let li = 0;
- 
-  function typeLine(){
-    if(li >= lines.length){
-      const cur = document.createElement('span');
-      cur.className = 'cursor';
-      term.appendChild(cur);
-      return;
-    }
-    const {p,t,c} = lines[li];
-    const div = document.createElement('span');
-    div.className = 'line';
-    const promptSpan = p ? `<span class="prompt">${p}</span>` : '';
-    div.innerHTML = promptSpan + `<span class="${c}"></span>`;
-    term.appendChild(div);
-    const target = div.querySelector('span:last-child');
-    let i = 0;
-    const speed = c === 'prompt' || p ? 28 : 10;
-    function type(){
-      if(i <= t.length){
-        target.textContent = t.slice(0,i);
-        i++;
-        setTimeout(type, speed);
-      } else {
-        li++;
-        setTimeout(typeLine, 220);
-      }
-    }
-    type();
-  }
-  typeLine();
- 
-  // scroll reveal
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-  }, {threshold:0.15});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
- 
+
 </body>
 </html>
